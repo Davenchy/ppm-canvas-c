@@ -5,6 +5,12 @@ I created it to know more about ppm images and how to generate them in C.
 
 ![The generated PPM image](./image.png)
 
+## Resources
+
+[Netpbm spec](https://netpbm.sourceforge.net/doc/ppm.html)
+[Netpbm wikipedia](https://en.wikipedia.org/wiki/Netpbm)
+[RosettaCode C implementation](https://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#C)
+
 ## Build
 
 Use the make file to build the program:
