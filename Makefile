@@ -1,16 +1,16 @@
-name := main
-image_name := image.ppm
-command := feh
+command := main
+image_file := image.ppm
+open_with := feh
 
 .PHONY: build open exec
 
-build: ${name}
+build: ${command}
 
-${name}: main.c
+${command}: main.c
 	gcc main.c -o $@ -Wall -Werror
 
-exec: ${name}
-	./${name}
+exec: ${command}
+	./${command} ${image_file}
 
 open: exec
-	${command} ${image_name}
+	${open_with} ${image_file}
