@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define DEFAULT_FILE_NAME "image.ppm"
+
 typedef struct {
   uint8_t red;
   uint8_t green;
@@ -93,12 +95,18 @@ void canvas_destroy(canvas_t *canvas) {
   free(canvas);
 }
 
-int main() {
+int main(int argc, char *argv[]) {
+  int code = 0;
   uint32_t i, j;
   canvas_t *canvas = canvas_create(800, 800, NULL);
   FILE *file;
+  char *filename = NULL;
 
-  if (!canvas) return 1;
+  if (!canvas) {
+    fprintf(stderr, "No enough memory to allocate canvas\n");
+    code = 1;
+    goto exit;
+  }
 
   for (i = 0; i < canvas->width; i++) {
     for (j = 0; j < canvas->height; j++) {
@@ -107,12 +115,17 @@ int main() {
     }
   }
 
-  file = fopen("image.ppm", "w");
+  filename = argc == 2 ?  argv[1] : DEFAULT_FILE_NAME;
+  file = fopen(filename, "w");
   if (file) {
     canvas_write_ppm(canvas, file);
     fclose(file);
+  } else {
+    fprintf(stderr, "Failed to open file: %s\n", filename);
+    code = 2;
   }
 
   canvas_destroy(canvas);
-  return 0;
+exit:
+  return code;
 }
