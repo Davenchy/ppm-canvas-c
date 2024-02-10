@@ -102,12 +102,7 @@ int main() {
 
   for (i = 0; i < canvas->width; i++) {
     for (j = 0; j < canvas->height; j++) {
-      double r = (double)i / canvas->width, g = (double)j / canvas->height;
-      color_t color = {
-        r * 255,
-        g * 255,
-        (i + j) % 255
-      };
+      color_t color = { i % 255, j % 255, (i + j) % 255 };
       canvas_set_pixel(canvas, i, j, &color);
     }
   }
