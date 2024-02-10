@@ -7,9 +7,9 @@ I created it to know more about ppm images and how to generate them in C.
 
 ## Resources
 
-[Netpbm spec](https://netpbm.sourceforge.net/doc/ppm.html)
-[Netpbm wikipedia](https://en.wikipedia.org/wiki/Netpbm)
-[RosettaCode C implementation](https://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#C)
+- [Netpbm spec](https://netpbm.sourceforge.net/doc/ppm.html)
+- [Netpbm wikipedia](https://en.wikipedia.org/wiki/Netpbm)
+- [RosettaCode C implementation](https://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#C)
 
 ## Build
 
